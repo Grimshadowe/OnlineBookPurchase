@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mtaala wa Kuboresha Kazi za Ndani</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg: #fbf8f6;
+  --panel: #fff;
+  --ink: #111217;
+  --muted: #60656e;
+  --accent: #c84a6a;  
+  --accent-2:#ffb3c6;
+  --glass: rgba(255,255,255,0.7);
+  --radius: 18px;
+  --shadow-1: 0 10px 30px rgba(16,20,25,0.08);
+  --shadow-2: 0 25px 60px rgba(16,20,25,0.12);
+}
+
+/* Reset & body */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* Header */
+header{
+  position:fixed;left:0;right:0;top:0;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 28px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));
+  backdrop-filter:blur(6px);
+  z-index:80;
+  box-shadow: 0 6px 20px rgba(12,12,14,0.04);
+}
+header .brand{display:flex;align-items:center;gap:14px}
+header .brand img{height:44px}
+header nav{display:flex;gap:18px;align-items:center}
+header nav a{font-weight:600;color:var(--muted);padding:8px 12px;border-radius:10px;transition:all .18s}
+header nav a:hover{color:var(--accent);transform:translateY(-2px)}
+
+/* Hero */
+main{margin-top:72px}
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:48px;
+  align-items:center;
+  padding:72px 6vw;
+  min-height:86vh;
+  position:relative;
+}
+.hero-left{max-width:760px}
+.kicker{
+  display:inline-block;
+  padding:8px 14px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#fff;border-radius:999px;font-weight:700;font-size:14px;
+  box-shadow:var(--shadow-1);
+  margin-bottom:18px;
+}
+h1{font-family:"Playfair Display",serif;font-size:56px;line-height:1.02;letter-spacing:-1px;margin-bottom:18px;color:var(--ink)}
+.lead{font-size:18px;color:var(--muted);margin-bottom:26px}
+.hero-actions{display:flex;gap:16px;align-items:center}
+.btn-primary{
+  background:linear-gradient(180deg,var(--accent),#a73a54);
+  color:white;padding:14px 26px;border-radius:14px;border:none;font-weight:700;
+  box-shadow:0 14px 35px rgba(200,74,106,0.18);cursor:pointer;transition:transform .22s,box-shadow .22s;
+}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(200,74,106,0.26)}
+.btn-ghost{background:transparent;border:1px solid rgba(16,20,25,0.06);padding:12px 18px;border-radius:12px;color:var(--muted);font-weight:600}
+
+/* Contact & Social */
+.contact-social{
+  display:flex;flex-direction:column;gap:8px;margin-top:28px;background:var(--panel);padding:16px;border-radius:16px;box-shadow:var(--shadow-1)
+}
+.contact-social a{color:var(--accent);display:flex;align-items:center;gap:8px;font-size:14px}
+.contact-social a:hover{color:var(--accent-2)}
+.contact-social i{font-size:16px}
+
+/* Buy panel */
+.buy-panel{
+  position:sticky;top:92px;
+  align-self:start;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+  padding:22px;border-radius:18px;box-shadow:var(--shadow-2);
+  width:100%;max-width:420px;min-height:320px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.buy-image{width:220px;transform:translateY(-20px);transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+.buy-panel:hover .buy-image{transform:translateY(-28px) rotate(-2deg)}
+.price{font-size:20px;font-weight:800;color:var(--accent)}
+.buy-cta{width:100%;display:flex;gap:12px}
+.buy-cta button{flex:1;padding:12px 16px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
+.buy-cta .buy-now{background:var(--accent);color:white;box-shadow:0 12px 30px rgba(200,74,106,0.16)}
+.buy-cta .add-cart{background:transparent;border:1px solid rgba(16,20,25,0.06);color:var(--muted)}
+.small-note{font-size:13px;color:var(--muted);text-align:center;margin-top:6px}
+
+/* Two-column sections */
+.section{padding:64px 6vw}
+.two-col{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start}
+.card{background:var(--panel);padding:26px;border-radius:16px;box-shadow:var(--shadow-1)}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+.feature{background:linear-gradient(180deg,#fff,#fff8fb);padding:20px;border-radius:14px;box-shadow:var(--shadow-1);transition:transform .28s}
+.feature:hover{transform:translateY(-8px)}
+.feature h4{font-family:Playfair Display,serif;margin-bottom:8px;color:var(--ink)}
+.feature p{color:var(--muted);font-size:14px}
+.testimonials{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap}
+.testimonial{flex:1;min-width:220px;background:linear-gradient(180deg,#fff,#fffefc);padding:18px;border-radius:12px;box-shadow:var(--shadow-1)}
+.testimonial p{color:var(--muted);font-size:14px}
+.full-cta{
+  margin-top:48px;padding:42px;border-radius:20px;background:linear-gradient(90deg, rgba(200,74,106,0.08), rgba(255,179,204,0.04));display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.full-cta .left{max-width:60%}
+.full-cta h3{margin-bottom:6px}
+.full-cta p{color:var(--muted)}
+.full-cta .cta-btn{padding:12px 26px;background:var(--accent);color:white;border-radius:12px;border:none;font-weight:700;box-shadow:0 12px 30px rgba(200,74,106,0.12);cursor:pointer}
+
+/* Footer */
+footer{padding:48px 6vw;background:#fff;background-image:linear-gradient(180deg,transparent, rgba(0,0,0,0.01));margin-top:40px;border-top:1px solid rgba(16,20,25,0.04)}
+footer .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .hint{color:var(--muted);font-size:14px}
+
+/* Small screens */
+@media (max-width:980px){
+  .hero, .two-col{grid-template-columns:1fr; padding:42px 5vw}
+  .feature-grid{grid-template-columns:repeat(1,1fr)}
+  .buy-panel{position:relative;top:auto;width:100%;max-width:unset}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="IMG_0535.PNG" alt="Logo">
+  </div>
+  <nav>
+    <a href="#about">Utangulizi</a>
+    <a href="#features">Vipengele</a>
+    <a href="#buy">Nunua</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-left">
+    <span class="kicker">Mtaala wa Kazi za Ndani</span>
+    <h1>Jifunze Sanaa ya Kujenga Thamani — Tumia Ujuzi, Ongeza Kipato</h1>
+    <p class="lead">Mtaala huu umeundwa kwa ajili ya wafanyakazi wa ndani wanaotaka kuwa mtaalamu, kujenga heshima na kupata malipo bora.</p>
+
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'})">Nunua Sasa</button>
+      <a class="btn-ghost" href="#features">Angalia Mafundisho</a>
+    </div>
+
+    <!-- Contact & Social -->
+    <div class="contact-social">
+      <a href="mailto:wanawakelive2012@gmail.com"><i class="fas fa-envelope"></i>wanawakelive2012@gmail.com</a>
+      <a href="tel:+255753787126"><i class="fas fa-phone"></i>+255 753 787 126</a>
+      <a href="https://www.instagram.com/joycekiriaofficial/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="https://www.facebook.com/100090176095125/videos/?_rdr" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
+    </div>
+  </div>
+
+  <aside class="buy-panel" aria-label="Buy panel">
+    <img class="buy-image" src="HMCB.png" alt="Book cover" />
+    <div class="price">TZS 19,999</div>
+    <div class="small-note">Nakala ya kimtandao & nakala ya PDF zinapatikana</div>
+    <div class="buy-cta">
+      <button class="buy-now" onclick="window.location.href='https://selar.co/your-product-name'">Nunua Sasa</button>
+      <button class="add-cart" onclick="alert('Added to cart (demo)')">Ongeza kwenye Cart</button>
+    </div>
+    <div style="height:8px"></div>
+    <div class="small-note">Usalama wa malipo unaungwa mkono.</div>
+  </aside>
+</section>
+
+<!-- ABOUT + Features -->
+<section id="about" class="section">
+  <div class="content-wrapper two-col">
+    <div>
+      <div class="card">
+        <h2>Utangulizi</h2>
+        <p>Mtaala huu unalenga kujenga uwezo wa mfanyakazi wa nyumbani kwa kiwango cha ubora kinachohitajika, ukizingatia mahitaji makuu ya waajiri. Utajifunza mbinu za mawasiliano, malezi, usafi, mapishi, matumizi ya muda, na jinsi ya kujitangaza ili kupata kazi zenye malipo mazuri.</p>
+
+        <div class="feature-grid" style="margin-top:22px">
+          <div class="feature">
+            <h4>Mbinu Zilizothibitishwa</h4>
+            <p>Ratiba, usimamizi wa nyumba, na mifumo ya kuunda mazingira salama na yenye tija.</p>
+          </div>
+          <div class="feature">
+            <h4>Lishe na Mapishi</h4>
+            <p>Mapishi ya afya, kupanga menyu kwa familia na watoto, na mbinu za upishi wa haraka.</p>
+          </div>
+          <div class="feature">
+            <h4>Ustadi wa Mtumiaji</h4>
+            <p>Mahusiano, mazungumzo profeshinali, na jinsi ya kujitangaza kwa waajiri wenye hadhi.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px">
+        <h3 style="font-family:Playfair Display,serif;margin-bottom:12px">Walioshawahi Kufanya</h3>
+        <div class="testimonials">
+          <div class="testimonial"><p>"Mtaala uliobadilisha kazi yangu. Nimepata ajira mpya na malipo bora." — Asha</p></div>
+          <div class="testimonial"><p>"Mafunzo yalikuwa wazi na ya vitendo. Nilipata wateja mapya." — Fatuma</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card" style="text-align:center">
+        <img src="HMCB.png" alt="Book cover" style="width:180px;margin:0 auto 14px;border-radius:12px;box-shadow:var(--shadow-1)" />
+        <h3 style="margin-bottom:6px">Mtaala wa Kuboresha Kazi za Ndani</h3>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:14px">Mwongozo kamili wa kazi za ndani — kuelewa wajibu, kujipanga, na kuboresha kipato chako.</p>
+        <div style="display:flex;gap:10px;justify-content:center">
+          <button class="btn-primary" onclick="window.location.href='#buy'">Nunua</button>
+          <a class="btn-ghost" href="#features">Tazama Vipengele</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="section">
+  <div class="content-wrapper">
+    <h2>Vipengele Muhimu</h2>
+
+    <div class="feature-grid" style="margin-top:22px">
+      <div class="feature">
+        <h4>Malezi Bora ya Watoto</h4>
+        <p>Mbinu za kulea watoto kwa upendo, nidhamu, na kukabiliana na changamoto za kila siku.</p>
+      </div>
+      <div class="feature">
+        <h4>Mapishi Bora</h4>
+        <p>Mbinu za kupanga menyu, lishe bora, na harakati za jikoni kwa ufanisi.</p>
+      </div>
+      <div class="feature">
+        <h4>Usafi wa Nyumba</h4>
+        <p>Mbinu za kisasa za kusafisha, kuandaa nafasi salama na za afya kwa familia.</p>
+      </div>
+    </div>
+
+    <div class="full-cta" style="margin-top:36px">
+      <div class="left">
+        <h3>Unaweza Kuwa Mtaalam — Anza Sasa</h3>
+        <p>Shughuli ndogo za kila siku zinaweza kubadilisha maisha yako. Pata mafunzo yanayotumika sasa.</p>
+      </div>
+      <div>
+        <button class="cta-btn" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'})">Pata Kitabu & Kujiandikisha</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Buy / CTA -->
+<section id="buy" class="section">
+  <div class="content-wrapper">
+    <h2>Wekeza Kwenye Taaluma Yako</h2>
+    <div class="card" style="max-width:900px;margin:28px auto;padding:28px;display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+      <div style="flex:0 0 220px;text-align:center">
+        <img src="HMCB.png" alt="Book cover" style="width:180px;border-radius:12px;box-shadow:var(--shadow-1)">
+      </div>
+      <div style="flex:1;min-width:220px">
+        <p style="margin-bottom:14px;color:var(--muted)">Nunua Mtaala wa Kazi za Ndani kwa TZS 19,999 tu. Nakala ya PDF na kitabu cha uchapaji inapatikana.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-primary" onclick="window.location.href='https://selar.co/your-product-name'">Nunua Sasa</button>
+          <button class="btn-ghost" onclick="alert('Added to cart (demo)')">Ongeza kwenye Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span class="hint">© 2025 Lincon Kilewo. Haki zote zimehifadhiwa.</span>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
